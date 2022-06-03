@@ -7,7 +7,7 @@ LABEL maintainer="Ian Torres <iantorres@outlook.com>" \
 
 ENV DEBIAN_FRONTEND=noninteractive \
     # BUILD
-    BUILD_DEPENDENCIES="build-essential ninja-build cmake libmysqlcppconn-dev uuid-dev git p7zip-full wget zlib1g-dev libssl-dev libcurl4-gnutls-dev curl zip unzip tar pkg-config" \
+    BUILD_DEPENDENCIES="build-essential ninja-build cmake libmysqlcppconn-dev uuid-dev git p7zip-full wget zlib1g-dev libssl-dev libcurl4-gnutls-dev curl zip unzip tar pkg-config libxinerama-dev libxcursor-dev xorg-dev libglu1-mesa-dev" \
     # BOOST
     BOOST_VERSION_MAJOR=1 \
     BOOST_VERSION_MINOR=79 \
@@ -42,6 +42,6 @@ RUN cd / \
     && git clone https://github.com/microsoft/vcpkg \
     && cd vcpkg \
     && ./bootstrap-vcpkg.sh \
-    && ./vcpkg install "aws-sdk-cpp[sqs, lambda]" sentry-native imgui cpp-redis --recurse --disable-metrics
+    && ./vcpkg install "aws-sdk-cpp[sqs, lambda]" sentry-native imgui cpp-redis glfw3 --recurse --disable-metrics
 
 RUN echo "Server Built Successfully."
