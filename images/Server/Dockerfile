@@ -42,6 +42,6 @@ RUN cd / \
     && git clone https://github.com/microsoft/vcpkg \
     && cd vcpkg \
     && ./bootstrap-vcpkg.sh \
-    && ./vcpkg install "aws-sdk-cpp[sqs, lambda]" sentry-native imgui cpp-redis glfw3 --recurse --disable-metrics
+    && ./vcpkg install "aws-sdk-cpp[sqs, lambda]" sentry-native "imgui[glfw-binding, opengl3-binding]" cpp-redis glfw3 --recurse --disable-metrics
 
 RUN echo "Server Built Successfully."
